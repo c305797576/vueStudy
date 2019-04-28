@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="checkbox" v-model="a">{{a}} <br>
+    爱好：
+    <input type="checkbox" v-model="b" value="篮球">篮球 <br>
+    <input type="checkbox" v-model="b"  value="游泳">游泳 <br>
+    <input type="checkbox" v-model="b"  value="普拉提">普拉提 <br>
+    {{b}}
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            a:false,
+            b:[]
+        }
+    });
+</script>
+</body>
+</html>

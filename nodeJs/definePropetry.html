@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input">
+<script>
+    let obj={};
+    let temp={};
+    Object.defineProperty(obj,'name',{
+        get(){  //取obj得那么属性会触发
+            return temp['name'];
+        },
+        set(value){  //给obj赋值会触发
+            temp['name']=value;
+            input.value=obj.name;
+        }
+    });
+    input.value=obj.name;
+    input.addEventListener('input',function(){
+        obj.name=this.value;
+    })
+//    Object.defineProperty(obj,'name',{
+//        configurable:false,//是否可删除
+//        writable:false,//是否可重新赋值
+//        enumerable:false,//是否可枚举
+//        value:1
+//    });
+//    delete obj.name;
+</script>
+</body>
+</html>

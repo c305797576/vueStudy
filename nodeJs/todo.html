@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--@keyup.13   modifiers键盘修饰符-->
+        <input type="text" v-model="inputval" @keyup.ctrl.13="add">
+        <ul>
+            <li v-for="(item,index) in arr">{{item}} <button @mouseup="del(index)">删除</button></li>
+        </ul>
+    </div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            arr:[],
+            inputval:'',
+        },
+        methods:{
+            add(event){
+                this.arr.unshift(this.inputval);
+                this.inputval='';
+            },
+            del(i){
+                console.log(i);
+                this.arr=this.arr.filter((item,index)=>{
+                    return index!==i;
+                })
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(fruits,index) in fruits">
+                {{index+1}}{{fruits.name}}
+                <select name="" id="">
+                    <option value="" v-for="(color,childIndex) in fruits.color">{{index+1}}.{{childIndex+1}}{{color}}</option>
+                </select>
+            </li>
+        </ul>
+        <p v-for="(value,key,index) in obj">{{key}}:{{value}}:{{index}}</p>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            obj:{name:'111',age:222,sex:0},
+            fruits:[
+                {name:'香蕉',color:['green','yellow']},
+                {name:'西瓜',color:['pink','green']},
+                {name:'芒果',color:['green','yellow']},
+                {name:'橘子',color:['green','origin']}
+                ]
+        }
+    });
+</script>
+</body>
+</html>
