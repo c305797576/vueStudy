@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    [v-cloak]{display: none}
+</style>
 <body>
-<div id="app">
-    <select name="" id="">
-        <option value=""></option>
-    </select>
+<div id="app" v-cloak>
+    <select v-model="a">
+        <option value="" disabled>请选择</option>
+        <option value="1">111</option>
+        <option value="2">222</option>
+        <option value="3">333</option>
+    </select>{{a}}
+    <input type="radio" v-model="sex" value="男">男
+    <input type="radio" v-model="sex" value="女">女
+    {{sex}}
 </div>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     let vm=new Vue({
         el:'#app',
         data:{
-            a:false,
-            b:[]
+            a:'',
+            sex:'男'
         }
     });
 </script>
