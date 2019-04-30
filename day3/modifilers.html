@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div @click.capture="parent">parent
+        <div @click.stop="child">child
+            <div @click="grandson">grandson</div>
+        </div>
+    </div>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm=new  Vue({
+        el:'#app',
+        methods:{
+            parent(){console.log('parent')},
+            child(){console.log('child')},
+            grandson(e){console.log('grandson');e.cancelBubble=true}
+        },
+        data:{
+
+        }
+    })
+</script>
+</body>
+</html>
