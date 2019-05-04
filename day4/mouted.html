@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p ref="myp">{{msg}}</p>
+    <div v-for="a in arr" ref="mydiv"></div>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    //this.$data vm上的数据
+    //this.$watch 监控
+    //this.$el 当前el元素
+    //this.$set 后加的属性实现响应式变化
+    //this.$options
+    //this.$nextTick
+    //this.$refs
+    let vm =new Vue({
+        el:'#app',
+        data:{
+            msg:'77777777777777',
+            arr:[1,2,3]
+        },
+        mounted(){
+            console.log(document.getElementsByTagName('p')[0].innerHTML);
+            //异步，等待渲染完成后执行方法
+            this.$nextTick(()=>{
+                console.log(vm);
+            });
+            //如果dom元素不是通过v-for循环出来的，只能获取到一个，通过v-for循环出来的可以获取多个
+            console.log(this.$refs.myp);
+            console.log(this.$refs.mydiv);
+        }
+    })
+</script>
+</body>
+</html>

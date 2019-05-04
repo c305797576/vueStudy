@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<style>
+    .del{
+        text-decoration: line-through;
+        color: #cccccc
+    }
+    .active{
+        color: red;
+    }
+</style>
+<body>
+<div id="app">
+    <ul class="layui-nav" lay-filter="">
+        <li class="layui-nav-item"><a href="">TodoList</a></li>
+    </ul>
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">亲,你有{{count}}件事情要完成</blockquote>
+        <blockquote class="layui-elem-quote layui-quote-nm"><input type="text" class="layui-input" v-model="title" @keyup.13="addList"></blockquote>
+        <ul class="layui-tab-title">
+            <a href="#/all"><li class="layui-this">全部任务</li></a>
+            <a href="#/finish"><li>已完成</li></a>
+            <a href="#/unfinish"><li>未完成</li></a>
+        </ul>
+        <div>
+            <blockquote class="layui-elem-quote layui-quote-nm" v-for="(todo,index) in filterTodos" @dblclick="remember(todo)" class="active">
+                <input type="checkbox" lay-skin="primary" v-model="todo.isSelected">
+                <span :class="{del:todo.isSelected}" v-show="current!=todo">{{todo.title}}</span>
+                <input type="text" v-model="todo.title" v-show="current==todo" @keyup.13="reset" @blur="reset" v-focus="current==todo">
+                <button class="layui-btn layui-btn-danger layui-btn-xs" style="float: right" @click="delList(todo)">&bigotimes;</button>
+            </blockquote>
+        </div>
+
+    </div>
+
+
+</div>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="layui/layui.js"></script>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/axios/dist/axios.js"></script>
+<script src="todo.js"></script>
+<script>
+    layui.use('element',()=>{
+        let element = layui.element;
+    })
+</script>
+</body>
+</html>
