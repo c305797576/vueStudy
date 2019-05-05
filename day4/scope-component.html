@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <compoent1></compoent1>
+    <compoent2></compoent2>
+    <compoent1></compoent1>
+    <compoent2/>
+    <div>77777777</div>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    let obj={name:'张三'};
+    let compoent1={
+        template:'<div @click="fn">77777777777777{{name}}</div>'
+        ,data(){return obj},
+        methods:{
+            fn(){
+                console.log(111);
+                this.school='hello';
+            }
+        }
+    };
+    let compoent2={template:'<div>999999999999{{name}}</div>',data(){return obj}};
+    let vm=new Vue({
+        el:'#app',
+        data:{},
+        components:{
+            compoent1,  //ES6属性和名称一样可以省略写 compoent1  == compoent1:compoent1
+            compoent2
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    父亲：{{money}}
+    <!--当前组件的属性=父亲的值，给儿子加了一个m属性，属性对应的数据是属于父亲的-->
+    <son :m="money"></son>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+
+    let vm=new  Vue({
+        el:'#app',
+        data:{
+            money:400
+        },
+        components:{
+            son: {
+                props:{
+                    m:{ //校验属性的类型，如果不带：得到的肯定是字符串类型:m='1' :m='true'
+                        type:[String,Boolean,Function,Object,Array,Number],
+//                        default:0,
+                        required:true, //此属性是必须传递，但不能和default同用
+                        validator(val){    //自定义校验器 ,第一个参数是当前传递的值，返回true表示通过，false失败
+                            return val>300
+                        }
+                    }
+                },//对象的形式可以进行校验
+                //props:['m'],//this.m=100；会在当前的子组件上声明一个m属性值是父亲的
+                template: '<div>son：{{m}}</div>',
+            }
+        }
+    })
+</script>
+</body>
+</html>
