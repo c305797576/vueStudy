@@ -25,27 +25,34 @@
 </style>
 <body>
 <div id="app">
-   <button>弹弹弹</button>
+   <button @click="flag=true">弹弹弹</button>
     <!--如果show的值是true则显示，如果是false则隐藏 @close对应的函数是点击关闭时触发的函数-->
-    <modal :show="false" ></modal>
+    <modal :show="flag" @close="()=>flag=false"></modal>
 
 </div>
 <template id="dialog">
-    <div class="mask">
+    <div class="mask" v-show="show">
         <div class="dialog">
-            <button>关闭</button>
+            <button @click="shutdown">关闭</button>
         </div>
     </div>
 </template>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     let modal={
-        prpos:['show'],
-        template:'#dialog'
+        props:['show'],
+        template:'#dialog',
+        methods:{
+            shutdown(){
+                this.$emit('close');
+            }
+        }
     };
     let vm=new Vue({
         el:'#app',
-        data:{},
+        data:{
+            flag:false
+        },
         components:{
             modal
         }
