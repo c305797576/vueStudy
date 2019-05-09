@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <loading ref="load"></loading>
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    let loading={
+        template:`<div v-show="flag">loading.......</div>`,
+        data(){
+            return {
+                flag:true
+            }
+        },
+        methods:{
+            hide(){
+                this.flag=false;
+            }
+        }
+    };
+    let vm=new Vue({
+        el:'#app',
+        data:{},
+        components:{
+            loading
+        },
+        created(){},
+        mounted(){
+            console.log(this.$refs.load);
+            this.$refs.load.hide();
+        },
+    })
+</script>
+</body>
+</html>

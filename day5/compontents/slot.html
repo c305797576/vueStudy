@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <modal>
+        <a href="">gogogo</a>
+        <h1 slot="title" @click="fn">是否删除</h1>
+        <p slot="content">7777777</p>
+        <a href="">gogogo</a>
+    </modal>
+</div>
+<template id="modal">
+    <!--模板中只能有一个根元素-->
+    <div>
+        <slot name="title">默认标题</slot>
+        <slot name="content">默认内容标题</slot>
+        <slot name="default">这是一个默认标题</slot>
+    </div>
+</template>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    let modal={
+        template:'#modal'
+    };
+    let vm=new Vue({
+        el:'#app',
+        data:{
+
+        },
+        components:{
+            modal
+        },
+        methods:{
+            fn(){
+                console.log(11111111);
+            }
+        }
+    });
+</script>
+</body>
+</html>

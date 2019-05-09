@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="node_modules/axios/dist/axios.js"></script>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    axios.get('http://zhannei.baidu.com/cse/search?s=5541116575338011306&p=0&q=道君').then(res=>{
+        console.log(res);
+    },err=>{
+        console.log(err);
+    })
+    let vm=new  Vue({
+
+    });
+</script>
+</html>
