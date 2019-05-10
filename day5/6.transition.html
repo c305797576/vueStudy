@@ -6,9 +6,7 @@
 </head>
 <body>
 <div id="app">
-    <a href="#/home">首页</a>
-    <a href="#/list">列表</a>
-    <router-link to="/home" tag="button">首页</router-link>
+    <router-link to="/home">首页</router-link>
     <router-link to="/list">列表</router-link>
     <router-view></router-view>
 </div>
@@ -18,8 +16,10 @@
     let home={template:'<div>首页</div>'};
     let list={template:'<div>列表</div>'};
     let routes=[
-        {path:'/home',component:home},
-        {path:'/list',component:list}
+        {path:'/home',component:home,
+            beforeDestory(){console.log(111)}
+            },
+        {path:'/list',component:list,beforeDestory(){console.log(111)}}
     ];
     let router=new VueRouter({
         //mode:'history',
