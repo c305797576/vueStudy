@@ -78,6 +78,24 @@ npm install less less-loader --save-dev
 npm install file-loader url-loader --save-dev
 ```
 
+## 需要解析html插件
+- 插件的作用是以我们自己的html为模板将打包后的结果，自动引入到html中产出到dist目录下
+```angular2html
+npm install html-webpack-plugin --save-dev
+```
+
+## webpack-dev-server
+- 这里内置了服务，可以帮我们启动一个端口号，当代码更新时，可以自动打包（内存中打包），
+代码有变化就重新执行
+```angular2html
+npm install webpack-dev-server --save-dev
+```
+
+## 安装vue-loader vue-template-compiler
+- vue-loader解析.vue文件的，vue会自动调用vue-template-compiler
+- vue-template-compiler用来解析vue模板
+
+
 
 
 

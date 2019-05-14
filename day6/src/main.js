@@ -1,19 +1,19 @@
-let str=require('./a.js');
-console.log(str);
-import xxx from './b.js';
+// import Vue from 'vue/dist/vue.js';
+import Vue from 'vue';
+//泽洋直接引用vue 引用的并不是vue.js 引用的是vue的RUNTIME
+//vue=compiler+runtime  (compiler可以编译模板)
+//compiler有6k
+import App from './App.vue'
 
-console.log(xxx);
-let obj={school:'ssxx'};
-let obj1={school:8};
-let newObj={...obj,...obj1};
-console.log(newObj);
+console.log(App);
+new Vue({
+    render:(c)=>c(App)
+}).$mount('#app');
 
-import './index.css';//引入css
-import './style.less';//引入less
-
-//在js中引入图片需要import，或者写一个线上路径
-import page from './111.jpg';//page代表打包后的图片路径
-let img=new Image();
-// img.src='./111.jpg';//写了一个字符串webpack不会进行查找
-img.src=page;
-document.body.appendChild(img);
+/**
+ * new Vue({
+    render:function (createElement) {
+        return createElement(App)
+    }
+}).$mount('#app');
+ */
