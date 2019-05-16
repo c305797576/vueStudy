@@ -10,12 +10,12 @@ import Add from '../components/Add.vue';
 
 export default new Router({
   routes: [
-    {path:'/',component:Home},
+    {path:'/',redirect:'/home'},
     {path:'/home',component:Home},
     {path:'/list',component:List},
-    {path:'/detail',component:Detail},
+    {path:'/detail/:bid',component:Detail,name:'detail'},
     {path:'/collect',component:Collect},
     {path:'/add',component:Add},
-    {path:'*',component:Home},
+    {path:'*',redirect:'/home'},
   ]
 })

@@ -1,0 +1,72 @@
+[
+  {
+    "bookCorver":"https://img13.360buyimg.com/n2/jfs/t1/11337/28/15060/482476/5ca5afe5E0248d72a/6f1489b91ad092d5.jpg",
+    "bookName":"2001：太空漫游",
+    "bookInfo":"人类对太空的想象，到《2001：太空漫游》为止。",
+    "bookPrice":99,
+    "bookId":1
+  },
+  {
+    "bookCorver":"https://img10.360buyimg.com/n2/jfs/t1/11806/14/1743/1524420/5c0e06b7E5e3db3bd/0d3674f1114d5052.jpg",
+    "bookName":"东野圭吾：名侦探的咒缚",
+    "bookInfo":"《名侦探的咒缚》中，东野圭吾不再是对笔下人物生杀予夺的神，而是将自己毫无保留地呈现给读者。结尾似是他与读者的约定，也是给自己下的战书。",
+    "bookPrice":88,
+    "bookId":2
+  },
+  {
+    "bookCorver":"https://img14.360buyimg.com/n2/jfs/t1/2609/31/5196/385925/5b9f0d97Ee01eb34e/6ed29b5576bfeb5b.jpg",
+    "bookName":"银河帝国大全集",
+    "bookInfo":"出版60年来，本书对人类的太空探索、世界局势、前沿经济学理论、好莱坞电影产生了深远的影响；更随着它的读者成长为各行各业的领袖，而将这种影响渗透到人类文化的方方面面。",
+    "bookPrice":611.60,
+    "bookId":3
+  },
+  {
+    "bookCorver":"https://img14.360buyimg.com/n2/jfs/t14533/145/1823745126/114536/c032e826/5a5d952eN5fcdf1fc.jpg",
+    "bookName":"金庸 射雕英雄传 六十周年京东纪念版套装",
+    "bookInfo":"金庸武侠小说包涵着迷人的文化气息，丰厚的历史知识和深刻的民族精神",
+    "bookPrice":209.60,
+    "bookId":4
+  },
+  {
+    "bookCorver":"https://img11.360buyimg.com/n2/g13/M00/0F/1A/rBEhVFJWgtQIAAAAABYy8ainCvkAAD_CwIhjcQAFjMJ922.jpg",
+    "bookName":"中国科幻基石丛书：三体全集+超新星纪元+球状闪电",
+    "bookInfo":"对历史和现实的一次思想实验。将人类的灵魂暴露于冷酷的星空中。遥远的异世界如梦如幻。却像一面镜子。更深刻地映照出人类自身。一部比现实更真实、比神话更空灵的科幻小说。 ",
+    "bookPrice":127.90,
+    "bookId":5
+  },
+  {
+    "bookCorver":"https://img11.360buyimg.com/n2/g13/M00/0F/1A/rBEhVFJWgtQIAAAAABYy8ainCvkAAD_CwIhjcQAFjMJ922.jpg",
+    "bookName":"中国科幻基石丛书：三体全集+超新星纪元+球状闪电1",
+    "bookInfo":"对历史和现实的一次思想实验。将人类的灵魂暴露于冷酷的星空中。遥远的异世界如梦如幻。却像一面镜子。更深刻地映照出人类自身。一部比现实更真实、比神话更空灵的科幻小说。 ",
+    "bookPrice":127.90,
+    "bookId":6
+  },
+  {
+    "bookCorver":"https://img11.360buyimg.com/n2/g13/M00/0F/1A/rBEhVFJWgtQIAAAAABYy8ainCvkAAD_CwIhjcQAFjMJ922.jpg",
+    "bookName":"中国科幻基石丛书：三体全集+超新星纪元+球状闪电2",
+    "bookInfo":"对历史和现实的一次思想实验。将人类的灵魂暴露于冷酷的星空中。遥远的异世界如梦如幻。却像一面镜子。更深刻地映照出人类自身。一部比现实更真实、比神话更空灵的科幻小说。 ",
+    "bookPrice":127.90,
+    "bookId":7
+  },
+  {
+    "bookCorver":"https://img11.360buyimg.com/n2/g13/M00/0F/1A/rBEhVFJWgtQIAAAAABYy8ainCvkAAD_CwIhjcQAFjMJ922.jpg",
+    "bookName":"中国科幻基石丛书：三体全集+超新星纪元+球状闪电3",
+    "bookInfo":"对历史和现实的一次思想实验。将人类的灵魂暴露于冷酷的星空中。遥远的异世界如梦如幻。却像一面镜子。更深刻地映照出人类自身。一部比现实更真实、比神话更空灵的科幻小说。 ",
+    "bookPrice":127.90,
+    "bookId":8
+  },
+  {
+    "bookCorver":"https://img11.360buyimg.com/n2/g13/M00/0F/1A/rBEhVFJWgtQIAAAAABYy8ainCvkAAD_CwIhjcQAFjMJ922.jpg",
+    "bookName":"中国科幻基石丛书：三体全集+超新星纪元+球状闪电4",
+    "bookInfo":"对历史和现实的一次思想实验。将人类的灵魂暴露于冷酷的星空中。遥远的异世界如梦如幻。却像一面镜子。更深刻地映照出人类自身。一部比现实更真实、比神话更空灵的科幻小说。 ",
+    "bookPrice":127.90,
+    "bookId":9
+  },
+  {
+    "bookCorver":"https://img11.360buyimg.com/n2/g13/M00/0F/1A/rBEhVFJWgtQIAAAAABYy8ainCvkAAD_CwIhjcQAFjMJ922.jpg",
+    "bookName":"中国科幻基石丛书：三体全集+超新星纪元+球状闪电5",
+    "bookInfo":"对历史和现实的一次思想实验。将人类的灵魂暴露于冷酷的星空中。遥远的异世界如梦如幻。却像一面镜子。更深刻地映照出人类自身。一部比现实更真实、比神话更空灵的科幻小说。 ",
+    "bookPrice":127.90,
+    "bookId":10
+  }
+]

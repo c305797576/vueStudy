@@ -3,8 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+//轮播图插件
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+import 'swiper/dist/css/swiper.css';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+Vue.use(VueAwesomeSwiper);
 
 /* eslint-disable no-new */
 new Vue({
