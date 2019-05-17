@@ -21,3 +21,26 @@ export let removeBook=(id)=>{
   return axios.delete(`/book?id=${id}`);
 };
 
+//获取某一本书
+export let findBook=(id)=>{
+  return axios.get(`/book?id=${id}`)
+};
+
+//修改图书
+export let updateBook=(id,data)=>{
+  return axios.put(`/book?id=${id}`,data)
+};
+
+//添加图书
+export let addBook=(data)=>{
+  return axios.post('/book',data)
+};
+
+export let getAll=()=>{
+  return axios.all([getSliders(),getHot()])
+};
+
+export let paginate=(offset)=>{
+  return axios.get(`/page?offset=${offset}`);
+};
+

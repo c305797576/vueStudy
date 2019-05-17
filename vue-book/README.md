@@ -17,4 +17,15 @@ npm install less less-loader axios vuex bootstrap@3
   - 2.在需要使用这个组件的父级中引用这个组件
   - 3.在组建者注册
   - 4.以标签的形式引入
+  
+
+## 路由元信息
+
+
+## 下拉加载
+- 默认每次给5条。前端告诉后台现在要从第几条开始给我
+- /page?offset=5
+- 后台返回是否有更多
+
+## coding split 代码分割
 

@@ -18,7 +18,7 @@ function read(cb) {
 function write(data,cb) {
   fs.writeFile('./book.json',JSON.stringify(data),cb)
 }
-
+let pageSize=5;//每页显示5个
 http.createServer((request, response) => {
   //设置跨域
   response.setHeader("Access-Control-Allow-Origin", "*");
@@ -28,6 +28,20 @@ http.createServer((request, response) => {
   if(request.method=="OPTIONS") return response.end();/*让options请求快速返回*/
 
   let {pathname, query} = url.parse(request.url,true);
+
+  if (pathname=='/page'){
+    let offset=parseInt(query.offset)||0;
+    read(function (books) {
+      let result=books.reverse().slice(offset,offset+pageSize);//数据倒序
+      let hasMore=true;
+      if (books.length<=offset+pageSize){
+        hasMore=false;
+      }
+      response.setHeader('Content-Type','application/json;charset=utf8');
+      response.end(JSON.stringify({result:result,hasMore:hasMore}))
+    });
+    return;
+  }
   if (pathname==='/sliders'){
     response.setHeader('Content-Type','application/json;charset=utf8');
     return response.end(JSON.stringify(sliders))
@@ -36,7 +50,10 @@ http.createServer((request, response) => {
     read(function (books) {
       let hot=books.reverse().slice(0,6);
       response.setHeader('Content-Type','application/json;charset=utf8');
-      response.end(JSON.stringify(hot))
+      setTimeout(function () {
+        response.end(JSON.stringify(hot))
+      },2000)
+
     });
     return;
   }
@@ -45,9 +62,14 @@ http.createServer((request, response) => {
     let id=parseInt(query.id);//取出的字符串
     switch (request.method){
       case 'GET':
-        if (id){
+        if (!isNaN(id)){
           //获取单本图书
-
+          read(function (books) {
+            let book=books.find(item=>item.bookId===id);
+            if (!book) book={};
+            response.setHeader('Content-Type','application/json;charset=utf8');
+            response.end(JSON.stringify(book))
+          })
         }else {
           //获取所有图书
           read(function (books) {
@@ -56,8 +78,46 @@ http.createServer((request, response) => {
           })
         }
         break;
-      case 'POST':break;
-      case 'PUT':break;
+      case 'POST':
+        let str='';
+        request.on('data',chunk=>{
+          str+=chunk;
+      });
+        request.on('end',()=>{
+          let book=JSON.parse(str);
+          read(function (books) {
+            book.bookId=books.length?books[books.length-1].bookId+1:1;
+            books.push(book);
+            write(books,function () {
+              response.setHeader('Content-Type','application/json;charset=utf8');
+              response.end(JSON.stringify(book));
+            })
+          })
+        });
+        break;
+      case 'PUT':
+        if (id){
+          let str='';
+          request.on('data',chunk=>{
+            str+=chunk;
+          });
+          request.on('end',()=>{
+            let book=JSON.parse(str);
+            read(function (books) {
+              books=books.map(item=>{ //找到相同的数替换
+                if (item.bookId===id){
+                  return book;
+                }
+                return item;
+              });
+              write(books,function () {
+                response.setHeader('Content-Type','application/json;charset=utf8');
+                response.end(JSON.stringify(book));
+              })
+            })
+          })
+        }
+        break;
       case 'DELETE':
         read(function (books) {
           books=books.filter(item=>item.bookId !== id);
@@ -70,4 +130,21 @@ http.createServer((request, response) => {
     }
     return;
   }
+
+  fs.stat('.'+pathname,function (err, stats) {
+    if (err){
+      fs.createReadStream('index.html').pipe(response);
+      response.statusCode=404;
+      response.end('NOT FOUND')
+    }else {
+      //是目录会报错
+      if (stats.isDirectory()){
+        let p=require('path').join('.'+pathname,'./index.html');
+        fs.createReadStream(p).pipe(response);
+      }else {
+        fs.createReadStream('.'+pathname).pipe(response);
+      }
+
+    }
+  })
 }).listen(3000);
