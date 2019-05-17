@@ -29,3 +29,19 @@ npm install less less-loader axios vuex bootstrap@3
 
 ## coding split 代码分割
 
+
+## TypeError: Cannot read property 'compilation' of undefined
+- 安装环境的使用一定要-save-dev或者是-save
+  - 1.首先定位到uglifyjs-webpack-plugin中的index.js文件中，将项目中的该包升级或者降级到1.0.0版本
+  ```
+  npm i uglifyjs-webpack-plugin@1.0.0 --save
+  ```
+  - 2.然后定位到optimize-css-assets-webpack-plugin\node_modules\last-call-webpack-plugin\src\index.js文件报错
+  ```
+    npm i optimize-css-assets-webpack-plugin@2 --save
+  ```
+  - 3.这个时候报缺少cssnano包，直接安装上即可
+  ```angular2html
+    npm i cssnano --save-dev
+  ```
+
