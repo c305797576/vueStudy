@@ -26,7 +26,7 @@ export default new Router({
     {
       path: '/home',
       component: () => import('../components/Home.vue'),
-      meta: {keepAlive: true}
+      meta: {keepAlive: true,title:'首页'}
     },
     {
       path: '/list',

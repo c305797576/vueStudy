@@ -9,7 +9,11 @@
             <h4>{{book.bookName}}</h4>
             <p>{{book.bookInfo}}</p>
             <b>{{book.bookPrice}}</b>
-            <button @click.stop="remove(book.bookId)">删除</button>
+            <div class="btn-list">
+              <button @click.stop="remove(book.bookId)">删除</button>
+              <button @click.stop>添加</button>
+            </div>
+
           </div>
         </router-link>
       </ul>
@@ -65,11 +69,13 @@
       let scroll=this.$refs.scroll;
       let top=scroll.offsetTop;
       let distance=0;
+      let isMove=false;
       scroll.addEventListener('touchstart',(e)=>{
         if (scroll.scrollTop!=0 && scroll.offsetTop==top) return;
         let start=e.touches[0].pageY;
         //拖动
         let move=(e)=>{
+          let isMove=true;
           let current=e.touches[0].pageY;
           distance=current-start;//拉动的距离 负的不要
           if (distance>0){
@@ -87,6 +93,8 @@
         };
         //拖动结束
         let end=(e)=>{
+          if (!isMove) return;
+          isMove=false;
           console.log(111);
           this.timer=setInterval(()=>{
             if (distance>0){
@@ -144,5 +152,9 @@
     color: white;
     border-radius: 5px;
     outline: none;
+  }
+  .btn-list{
+    display: flex;
+    justify-content: space-around;
   }
 </style>
