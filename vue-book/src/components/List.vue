@@ -11,7 +11,7 @@
             <b>{{book.bookPrice}}</b>
             <div class="btn-list">
               <button @click.stop="remove(book.bookId)">删除</button>
-              <button @click.stop>添加</button>
+              <button @click.stop="add(book)">添加</button>
             </div>
 
           </div>
@@ -24,7 +24,7 @@
 <script>
   import MHeader from '../base/MHeader.vue';
   import {getBooks,removeBook,paginate} from '../api';
-
+  import * as Types from '../store/mutations-type';
   export default {
     data() {
       return {
@@ -62,8 +62,11 @@
           this.hasMore=hasMore;
           this.offset=this.books.length;
         }
-
+      },
+      add(data){
+        this.$store.commit(Types.ADD_CART,data)
       }
+
     },
     mounted(){
       let scroll=this.$refs.scroll;

@@ -7,6 +7,7 @@ import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.css';
 import VueLazyLoad from 'vue-lazyload';
+import store from './store';
 Vue.config.productionTip = false;
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueLazyLoad,{
@@ -26,5 +27,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  store
 })
